@@ -6,15 +6,17 @@
 
   programs.noctalia = {
     enable = true;
-    settings = {
-      theme.mode = "dark";
-    };
   };
 
+  
+  xdg.configFile."umbriel/config.toml".source = ./umbriel.toml;
+
   home.packages = with pkgs; [
-    firefox
+    neovim
+    firefox   
     kitty
     git
+    fastfetch
   ];
 
   programs.home-manager.enable = true;
