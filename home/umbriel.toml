@@ -323,7 +323,7 @@ follows_mouse = true                          # Focus on motion after scene chan
 
 "Page_Up" = "spawn:equibop --toggle-mic"
 "Page_Down" = "spawn:equibop --toggle-deafen"
-"Alt+Tab" = "spawn:noctalia window-switcher"
+"Alt+Tab" = "spawn:noctalia msg window-switcher"
 
 "Mod+Return" = "spawn:kitty"
 "Mod+E" = "spawn:nautilus"
