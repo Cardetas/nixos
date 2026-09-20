@@ -56,11 +56,15 @@
     enable = true;
     memoryPercent = 100;
   };
+ 
+
+  programs.zsh.enable = true;
 
   users.users."cardetas" = {
     isNormalUser = true;
     description = "Cardetas";
     extraGroups = [ "networkmanager" "wheel" "audio" "video" ];
+    shell = pkgs.zsh;
     packages = with pkgs; [];
   };
 
@@ -75,15 +79,27 @@
 
   programs.umbriel.enable = true;
 
-  services.greetd = {
+  programs.noctalia = {
+    enable = true;
+    recommendedServices.enable = true;
+  };
+
+  services.displayManager.noctalia-greeter = {
     enable = true;
     settings = {
-      default_session = {
-        command = "${pkgs.noctalia-greeter}/bin/noctalia-greeter-session";
-        user = "greeter";
-      };
+      cursor.size = 24;
+      keyboard.layout = "pt";
+
+    };
+    cursorTheme = {
+      package = pkgs.bibata-cursors;
+      name = "Bibata-Modern-Ice";
     };
   };
- 
- system.stateVersion = "26.05";
+
+
+  boot.kernelParams = [ "amdgpu.backlight=0" ];
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+
+  system.stateVersion = "26.05";
 }
