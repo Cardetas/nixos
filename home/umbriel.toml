@@ -323,11 +323,13 @@ follows_mouse = true                          # Focus on motion after scene chan
 
 "Page_Up" = "spawn:equibop --toggle-mic"
 "Page_Down" = "spawn:equibop --toggle-deafen"
+"Alt+Tab" = "spawn:noctalia window-switcher"
 
 "Mod+Return" = "spawn:kitty"
-"Mod+e" = "spawn:nautilus"
-"Mod+b" = "spawn:firefox"
-"Mod" = "spawn:noctalia msg panel-toggle launcher"
+"Mod+E" = "spawn:nautilus"
+"Mod+B" = "spawn:firefox"
+"Mod" = "spawn:noctalia msg panel-toggle control-center"
+"Mod+Ctrl+Return" = "spawn:noctalia msg panel-toggle launcher"
 "Mod+Q" = "window-close"
 
 # Focus navigation. In overview, Mod+Up/Down retain normal layout focus, so they
@@ -348,7 +350,8 @@ follows_mouse = true                          # Focus on motion after scene chan
 "Mod+O" = { action = "overview-toggle", repeat = false }
 
 # Common keybinds
-"Mod+Escape" = "session-quit"
+"Mod+Escape" = "spawn:noctalia msg paneltoggle session"
+"Mod+Ctrl+Escape" = "session-quit"
 # Keep one escape binding available when a game or remote desktop client asks
 # Umbriel to pass ordinary compositor shortcuts through.
 "Mod+Shift+Escape" = { action = "shortcuts-inhibit-toggle", allow_when_inhibited = true, repeat = false }
