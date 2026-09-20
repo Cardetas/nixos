@@ -29,6 +29,7 @@
 
     firefox   
     spotify
+    equibop
 
     nerd-fonts.jetbrains-mono
   ];
