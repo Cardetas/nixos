@@ -27,7 +27,9 @@
     fzf
 
     firefox   
-    spotify  
+    spotify
+
+    nerd-fonts.jetbrains-mono
   ];
   
   programs.zsh = {
