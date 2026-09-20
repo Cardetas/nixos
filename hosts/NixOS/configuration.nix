@@ -98,6 +98,16 @@
   };
   
   virtualisation.libvirtd.enable = true;
+  programs.virt-manager.enable = true;
+ # services.cockpit = {
+ #   enable = true;
+ #   port = 9090;
+ #   plugins = [
+ #     pkgs.cockpit-files
+ #     pkgs.cockpit-podman
+ #     pkgs.cockpit-machines
+ #   ];
+ # };
 
   boot.kernelParams = [ "amdgpu.backlight=0" ];
   boot.kernelPackages = pkgs.linuxPackages_latest;
