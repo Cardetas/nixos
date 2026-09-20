@@ -18,6 +18,7 @@
 
   
   xdg.configFile."umbriel/config.toml".source = ./umbriel.toml;
+  xdg.configFile."noctalia/config.toml".source = ./noctalia.toml;
 
   home.packages = with pkgs; [
     kitty

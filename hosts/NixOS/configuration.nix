@@ -63,7 +63,7 @@
   users.users."cardetas" = {
     isNormalUser = true;
     description = "Cardetas";
-    extraGroups = [ "networkmanager" "wheel" "audio" "video" ];
+    extraGroups = [ "networkmanager" "wheel" "audio" "video" "libvirtd" ];
     shell = pkgs.zsh;
     packages = with pkgs; [];
   };
@@ -96,7 +96,8 @@
       name = "Bibata-Modern-Ice";
     };
   };
-
+  
+  virtualisation.libvirtd.enable = true;
 
   boot.kernelParams = [ "amdgpu.backlight=0" ];
   boot.kernelPackages = pkgs.linuxPackages_latest;
