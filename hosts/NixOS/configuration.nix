@@ -112,5 +112,12 @@
   boot.kernelParams = [ "amdgpu.backlight=0" ];
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
+  boot.kernelPatches = [
+    {
+      name = "hp-mute-led-quirk";
+      patch = ./hp-mute-led.patch;
+    }
+  ];
+
   system.stateVersion = "26.05";
 }
