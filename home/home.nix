@@ -27,6 +27,7 @@
     neovim
     fzf
 
+    nautilus
     firefox   
     spotify
     equibop
