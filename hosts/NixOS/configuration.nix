@@ -119,5 +119,9 @@
     }
   ];
 
+  environment.systemPackages = [
+    pkgs.virt-viewer
+  ];
+
   system.stateVersion = "26.05";
 }
