@@ -15,7 +15,10 @@
   programs.noctalia = {
     enable = true;
   };
-
+  
+  programs.lazyvim = {
+    enable = true;
+  };
   
   xdg.configFile."umbriel/config.toml".source = ./umbriel.toml;
   xdg.configFile."noctalia/config.toml".source = ./noctalia.toml;
@@ -24,7 +27,6 @@
     kitty
     fastfetch
     git
-    neovim
     fzf
 
     nautilus
@@ -34,7 +36,7 @@
 
     nerd-fonts.jetbrains-mono
   ];
-  
+   
   programs.zsh = {
     enable = true;
     enableCompletion = true;
@@ -73,7 +75,8 @@
       DISABLE_MAGIC_FUNCTIONS="true"
       ENABLE_CORRECTION="true"
       COMPLETION_WAITING_DOTS="true"
-      
+     
+      export TERM=xterm-256color
       export HISTCONTROL=ignoreboth
       export HISTORY_IGNORE="(\&|[bf]g|c|clear|history|exit|q|pwd|* --help)"
 
@@ -82,7 +85,7 @@
 
       export PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
 
-      [[ "$TERM" = "xterm-kitty" ]] && alias ssh="kitty +kitten ssh"
+      #[[ "$TERM" = "xterm-kitty" ]] && alias ssh="kitty +kitten ssh"
 
       # Powerlevel10k configuration loader
       [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
