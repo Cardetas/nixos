@@ -1,0 +1,45 @@
+{
+  pkgs,
+  config,
+  lib,
+  inputs,
+  desktop,
+  ...
+}:
+
+let
+  desktops = import ../../lib/desktops.nix;
+  greeterSession = desktops.greeterSession desktop;
+  greeterSettings = {
+    greeter_user = "greeter";
+    session = {
+      default = greeterSession;
+      last = greeterSession;
+    };
+    user = {
+      default = config.cardetas.username;
+    };
+    appearance = {
+      scheme = "Synced";
+      password_style = "random";
+    };
+    cursor = {
+      theme = config.cardetas.cursor.theme;
+      size = 24;
+    };
+    keyboard = {
+      layout = "pt";
+    };
+  };
+
+in
+{
+      services.displayManager.noctalia-greeter = {
+        enable = true;
+        passwordless-sync-users = [ config.cardetas.username ];
+        greeter-args = "";
+        cursorTheme.package = config.cardetas.cursor.package;
+        settings = greeterSettings;
+      };
+
+}

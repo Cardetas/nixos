@@ -1,5 +1,5 @@
 {
-  description = "My NixOS Umbriel Configuration";
+  description = "My NixOS Configuration";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
@@ -9,7 +9,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    lazyvim.url = "github:pfassina/lazyvim-nix";
+    lazyvim = {
+      url = "github:pfassina/lazyvim-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     umbriel = {
       url = "github:noctalia-dev/umbriel";
@@ -17,7 +20,14 @@
     };
   };
 
-  outputs = { self, nixpkgs, umbriel, home-manager, lazyvim, ... }@inputs: {
+  outputs = { 
+    nixpkgs,
+    home-manager,
+    ... 
+    }@inputs: 
+    {
+    formatter = nixpkgs.legacyPackages.${system}.alejandra;
+     
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
@@ -27,7 +37,6 @@
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-	  home-manager.sharedModules = [ lazyvim.homeManagerModules.default ];
           home-manager.users.cardetas = import ./home/home.nix;
         }
       ];
