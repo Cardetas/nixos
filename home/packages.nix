@@ -1,0 +1,40 @@
+{
+  pkgs,
+  ...
+}:
+
+with pkgs;
+[
+  noctalia
+  agenix
+  xwayland-satellite
+  protonplus
+  bitwarden-cli
+  prismlauncher
+  nautilus
+  file-roller
+  btop
+  mpv
+  gh
+  gcc16
+  llvmPackages_22.clang-tools
+  just
+  nodejs
+  nim
+  nimble
+  age
+  nwg-look
+  heroic
+  lutris
+  spotify
+  jq
+  eza
+  lazygit
+  ripgrep
+  tree
+  libnotify
+  wl-clipboard
+  unzip
+  imagemagick
+  gpu-screen-recorder
+]
