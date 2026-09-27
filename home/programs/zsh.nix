@@ -21,6 +21,7 @@
 
     shellAliases = {
       vim = "nvim";
+      v = "nvim"
       make = "make -j$(nproc)";
       ninja = "ninja -j$(nproc)";
       n = "ninja";

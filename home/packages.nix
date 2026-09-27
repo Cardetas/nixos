@@ -20,13 +20,9 @@ with pkgs;
   age
   nwg-look
   spotify
-  jq
-  eza
-  lazygit
   ripgrep
   tree
   wl-clipboard
   unzip
-  neovim
   fzf
 ]
