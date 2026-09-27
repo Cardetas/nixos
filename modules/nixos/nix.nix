@@ -22,7 +22,7 @@
     options = "--delete-older-than 5d";
   };
 
-  nixpkgs.config.allowUnfree = true;;
+  nixpkgs.config.allowUnfree = true;
 
   programs.nh = {
     enable = true;

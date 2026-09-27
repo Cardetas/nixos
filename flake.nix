@@ -24,21 +24,48 @@
     nixpkgs,
     home-manager,
     ... 
-    }@inputs: 
+    }@inputs:
+
+    let
+      host = import ./hosts/nixos/settings.nix;
+      inherit (host) desktop system username;
+    in
     {
     formatter = nixpkgs.legacyPackages.${system}.alejandra;
-     
-    nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
+    
+     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
+        inherit system;
+    specialArgs = {
+          inherit inputs host desktop;
+        };
+
       modules = [
-        ./hosts/NixOS/configuration.nix
-        umbriel.nixosModules.default
-        home-manager.nixosModules.home-manager
-        {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.users.cardetas = import ./home/home.nix;
-        }
+        ./hosts/nixos/configuration.nix
+         home-manager.nixosModules.home-manager
+
+          (
+            { lib, ... }:
+            {
+              home-manager = {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                backupFileExtension = "backup";
+                overwriteBackup = true;
+                extraSpecialArgs = {
+                  inherit inputs desktop;
+                };
+                sharedModules = [
+                  ./modules/cardetas
+                  { cardetas = host; }
+                ];
+
+                users.${username} = import ./home/default.nix;
+              };
+
+              systemd.services."home-manager-${username}".serviceConfig.TimeoutStartSec =
+                lib.mkForce "30m";
+            }
+          )
       ];
     };
   };

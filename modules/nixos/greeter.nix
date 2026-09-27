@@ -36,8 +36,7 @@ in
 {
       services.displayManager.noctalia-greeter = {
         enable = true;
-        passwordless-sync-users = [ config.cardetas.username ];
-        greeter-args = "";
+        passwordlessSyncUsers = [ config.cardetas.username ];
         cursorTheme.package = config.cardetas.cursor.package;
         settings = greeterSettings;
       };

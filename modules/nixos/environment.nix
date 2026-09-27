@@ -3,5 +3,5 @@
 {
   environment.variables = {
     XCURSOR_SIZE = "24";
-  }
+  };
 }

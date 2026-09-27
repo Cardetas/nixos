@@ -6,25 +6,17 @@
 }:
 
 let
-  browser = config.home.sessionVariables.BROWSER;
   nautilus = "${pkgs.nautilus}/bin/nautilus";
   noctalia = lib.getExe pkgs.noctalia;
-  wpctl = "${pkgs.wireplumber}/bin/wpctl";
 in
 {
   programs.umbriel.settings.keybinds = {
     "Mod+Return" = "spawn:${pkgs.kitty}/bin/kitty";
     "Mod+Ctrl+Return" = "spawn:${noctalia} msg panel-toggle launcher";
     "Alt+Tab" = "spawn:${noctalia} msg window-switcher";
-    "Mod+B" = "spawn:${browser}";
-    "Mod+E" = "spawn:${nautilus}";
+       "Mod+E" = "spawn:${nautilus}";
 
-    "XF86AudioMute" = "spawn:${wpctl} set-mute @DEFAULT_AUDIO_SINK@ toggle";
-    "Mod+Delete" = "spawn:${wpctl} set-mute @DEFAULT_AUDIO_SOURCE@ toggle";
-    "Mod+Page_Up" = "spawn:${wpctl} set-volume @DEFAULT_AUDIO_SINK@ 0.05+";
-    "Mod+Page_Down" = "spawn:${wpctl} set-volume @DEFAULT_AUDIO_SINK@ 0.05-";
-
-    "Mod+O" = "overview-toggle";
+       "Mod+O" = "overview-toggle";
 
     "Mod+WheelUp" = {
       action = "workspace-previous";

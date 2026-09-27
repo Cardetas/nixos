@@ -43,16 +43,17 @@ in
     };
 
     cursor ={
-    theme = lib.mkOption {
-      type = lib.types.str;
-      readOnly = true;
-      description = "Custom Bibata cursor theme name.";
-    };
+      theme = lib.mkOption {
+        type = lib.types.str;
+        readOnly = true;
+        description = "Custom Bibata cursor theme name.";
+      };
 
-    package = lib.mkOption {
-      type = lib.types.package;
-      readOnly = true;
-      description = "Declarative fallback cursor package used by the greeter.";
-    };
+      package = lib.mkOption {
+        type = lib.types.package;
+        readOnly = true;
+        description = "Declarative fallback cursor package used by the greeter.";
+      };
+     };
   };
 }

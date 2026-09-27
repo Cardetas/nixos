@@ -11,8 +11,10 @@
       ./storage.nix
       ../../modules/cardetas
       ../../modules/nixos
-      (../../desktops/ + "/${desktop}/nixos.nix")
+      (../../desktops + "/${desktop}/nixos.nix")
     ];
+  
+
 
   zramSwap = {
     enable = true;
@@ -27,7 +29,11 @@
     pkgs.virt-viewer
   ];
 
-  cardetas = host;
+  cardetas = host // {
+    cursor = host.cursor // {
+      package = pkgs.bibata-cursors;
+    };
+  };
   networking.hostName = config.cardetas.hostname;
   system.stateVersion = config.cardetas.stateVersion;
 }

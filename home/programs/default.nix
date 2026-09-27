@@ -1,7 +1,7 @@
 {
     imports = [
-      ./lazyvim.nix
-      ./noctalia.nix
+      #./lazyvim.nix
+      #./noctalia.nix
       ./zsh.nix
-    ]
+    ];
   }

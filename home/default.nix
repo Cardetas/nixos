@@ -12,6 +12,7 @@
     ./programs
   ];
 
+
   home.username = config.cardetas.username;
   home.homeDirectory = "/home/${config.cardetas.username}";
   home.stateVersion = config.cardetas.stateVersion;

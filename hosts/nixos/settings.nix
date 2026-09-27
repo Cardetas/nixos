@@ -15,6 +15,6 @@
 
   cursor = {
        theme = "Bibata-Modern-Ice";
-       package = pkgs.bibata-cursors; 
-    }
+      # package = pkgs.bibata-cursors; 
+    };
 }
