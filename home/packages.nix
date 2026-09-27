@@ -5,24 +5,19 @@
 
 with pkgs;
 [
-  noctalia
-  xwayland-satellite
+  # Desktop & Media
   nautilus
-  btop
-  mpv
-  gh
-  gcc16
-  llvmPackages_22.clang-tools
-  just
-  nodejs
-  nim
-  nimble
-  age
-  nwg-look
   spotify
+  mpv
+  equibop
+
   ripgrep
   tree
-  wl-clipboard
-  unzip
-  fzf
-]
+  nodejs
+];
+
+programs.fzf.enable = true;
+programs.btop.enable = true;
+programs.gh.enable = true; 
+ 
+

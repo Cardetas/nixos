@@ -10,17 +10,20 @@
     pulse.enable = true;
   };
 
-
   security.polkit.enablePkexecWrapper = true;
   hardware.enableRedistributableFirmware = true;
 
- networking.networkmanager = {
+  networking.networkmanager = {
     enable = true;
     plugins = with pkgs; [
       networkmanager-openvpn
     ];
   };
-  hardware.bluetooth.enable = true;
+
+  hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = false; 
+  };
   services.upower.enable = true;
   services.power-profiles-daemon.enable = true;
   services.gvfs.enable = true;

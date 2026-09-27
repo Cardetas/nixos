@@ -5,5 +5,4 @@
   environment.systemPackages = [
     pkgs.virt-viewer
   ];
-
-  }
+}
