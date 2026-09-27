@@ -12,17 +12,6 @@ let
   greeterSession = desktops.greeterSession desktop;
   greeterSettings = {
     greeter_user = "greeter";
-    session = {
-      default = greeterSession;
-      last = greeterSession;
-    };
-    user = {
-      default = config.cardetas.username;
-    };
-    appearance = {
-      scheme = "Synced";
-      password_style = "random";
-    };
     cursor = {
       theme = config.cardetas.cursor.theme;
       size = 24;

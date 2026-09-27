@@ -8,6 +8,7 @@ with pkgs;
   # Desktop & Media
   nautilus
   spotify
+  firefox
   mpv
   equibop
 
