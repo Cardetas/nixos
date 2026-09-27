@@ -15,7 +15,7 @@ with pkgs;
   ripgrep
   tree
   nodejs
-];
+]
 
  
 
