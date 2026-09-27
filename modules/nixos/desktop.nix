@@ -1,11 +1,15 @@
-{ pkgs, ... }:
+{ inputs, pkgs, ... }:
 
 {
-  hardware.graphics.enable = true;
+    imports = [
+    inputs.umbriel.nixosModules.default
+  ];
 
-  # Home Manager gtk / dconfSettings need this on every compositor
-  programs.dconf.enable = true;
+  programs.umbriel.enable = true;
+  
 
+  services.gnome.gnome-keyring.enable = true;
+  security.pam.services.greetd.enableGnomeKeyring = true;
   services.xserver = {
     enable = false;
     xkb = {
@@ -13,4 +17,13 @@
       variant = "";
     };
   };
+
+
+
+
+
+
+
+
+
 }

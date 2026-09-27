@@ -7,15 +7,14 @@
 
 {
   imports = [
-    ../desktops/shared/home.nix
-    (../desktops + "/${desktop}/home")
+    ./umbriel
     ./programs
   ];
 
 
-  home.username = config.cardetas.username;
-  home.homeDirectory = "/home/${config.cardetas.username}";
-  home.stateVersion = config.cardetas.stateVersion;
+  home.username = "cardetas";
+  home.homeDirectory = "/home/cardetas";
+  home.stateVersion = "26.05";
 
   home.packages = import ./packages.nix { inherit pkgs; };
 

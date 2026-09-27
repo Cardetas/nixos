@@ -1,13 +1,9 @@
 {
-  config,
-  inputs,
   pkgs,
   ...
 }:
 
 {
-  systemd.services.nix-daemon.path = [ pkgs.git ];
-
   nix.settings = {
     experimental-features = [
       "nix-command"
@@ -26,7 +22,7 @@
 
   programs.nh = {
     enable = true;
-    flake = "/home/${config.cardetas.username}/nixos";
+    flake = "/home/cardetas/nixos";
   };
 
   programs.nix-ld.enable = true;

@@ -1,9 +1,9 @@
 { config, pkgs, ... }:
 
 {
-  users.users.${config.cardetas.username} = {
+  users.users.cardetas = {
     isNormalUser = true;
-    description = config.cardetas.username;
+    description = "";
     shell = pkgs.zsh;
     extraGroups = [
       "networkmanager"

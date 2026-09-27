@@ -25,18 +25,14 @@
     home-manager,
     ... 
     }@inputs:
-
-    let
-      host = import ./hosts/nixos/settings.nix;
-      inherit (host) desktop system username;
-    in
     {
-    formatter = nixpkgs.legacyPackages.${system}.alejandra;
+    formatter = nixpkgs.legacyPackages.x86_64-linux.alejandra;
+    
+    system = "x86_64-linux";
     
      nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
-        inherit system;
     specialArgs = {
-          inherit inputs host desktop;
+          inherit inputs;
         };
 
       modules = [
@@ -52,18 +48,10 @@
                 backupFileExtension = "backup";
                 overwriteBackup = true;
                 extraSpecialArgs = {
-                  inherit inputs desktop;
+                  inherit inputs;
                 };
-                sharedModules = [
-                  ./modules/cardetas
-                  { cardetas = host; }
-                ];
-
-                users.${username} = import ./home/default.nix;
+                users.cardetas = import ./home/home.nix;
               };
-
-              systemd.services."home-manager-${username}".serviceConfig.TimeoutStartSec =
-                lib.mkForce "30m";
             }
           )
       ];

@@ -12,7 +12,7 @@
     environment = {
       PROTON_ENABLE_WAYLAND = "1";
       DXVK_HDR = "1";
-      XCURSOR_THEME = config.cardetas.cursor.theme;
+
       XCURSOR_SIZE = "24";
     };
 
