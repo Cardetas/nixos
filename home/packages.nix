@@ -5,13 +5,13 @@
 
 with pkgs;
 [
-  # Desktop & Media
   nautilus
   spotify
   firefox
   mpv
   equibop
 
+  fastfetch
   ripgrep
   tree
   nodejs
