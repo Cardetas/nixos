@@ -17,8 +17,5 @@ with pkgs;
   nodejs
 ];
 
-programs.fzf.enable = true;
-programs.btop.enable = true;
-programs.gh.enable = true; 
  
 

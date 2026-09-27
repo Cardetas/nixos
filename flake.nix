@@ -28,9 +28,10 @@
     {
     formatter = nixpkgs.legacyPackages.x86_64-linux.alejandra;
     
-    system = "x86_64-linux";
+    
     
      nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
+    system = "x86_64-linux";
     specialArgs = {
           inherit inputs;
         };

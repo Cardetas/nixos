@@ -1,7 +1,6 @@
 {
   pkgs,
   config,
-  desktop,
   ...
 }:
 
@@ -26,7 +25,11 @@
   
   xdg.configFile."umbriel/config.toml".source = ./umbriel.toml;
   xdg.configFile."noctalia/config.toml".source = ./noctalia.toml;
-
+  
+  
+  programs.fzf.enable = true;
+  programs.btop.enable = true;
+  programs.gh.enable = true; 
 
   home.packages = import ./packages.nix { inherit pkgs; };
 
